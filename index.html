@@ -26,13 +26,14 @@
     const findPath = (object, path) => {
       // write logic here
       const arrayString = path.split(".");
+      let result = { ...object };
       for (let i = 0; i < arrayString.length; i++) {
-        if (!object.hasOwnProperty(arrayString[i])) {
+        if (!result.hasOwnProperty(arrayString[i])) {
           return undefined;
         }
-        object = object[arrayString[i]];
+        result = result[arrayString[i]];
       }
-      return object;
+      return result;
     };
 
     console.log(findPath(obj, "a.b.c")); // 12
